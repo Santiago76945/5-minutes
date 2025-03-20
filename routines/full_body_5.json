@@ -1,0 +1,40 @@
+{
+    "routine": "5 minutos - Cuerpo Completo",
+    "total_time": 300,
+    "notes": "Antes de empezar, dedica al menos 1 minuto a movilizar tus articulaciones y realizar estiramientos dinámicos (rotaciones de hombros, cadera, tobillos, etc.).",
+    "image": "img/full_body_5.png",
+    "description": "Esta rutina de 5 minutos se enfoca en trabajar varios grupos musculares de forma rápida y efectiva. Incluye ejercicios para activar el tren inferior, superior y el core.",
+    "exercises": [
+      {
+        "name": "Jumping Jacks",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Realiza saltos abriendo y cerrando las piernas a la vez que llevas los brazos por encima de la cabeza. Mantén el abdomen contraído."
+      },
+      {
+        "name": "Push-Ups (Flexiones)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Mantén el cuerpo en línea recta desde los hombros hasta los talones. Baja el pecho hacia el suelo sin arquear la espalda."
+      },
+      {
+        "name": "Sentadillas (Squats)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Separa los pies a la altura de los hombros. Baja llevando la cadera hacia atrás, manteniendo la espalda recta."
+      },
+      {
+        "name": "Plancha Lateral Alternada",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Comienza en plancha alta. Gira el cuerpo hacia un lado levantando el brazo y mantén la posición unos segundos. Alterna al otro lado."
+      },
+      {
+        "name": "Puente de Glúteos (Glute Bridge)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Túmbate boca arriba con las rodillas flexionadas y pies apoyados en el suelo. Eleva la cadera hasta alinear rodillas, cadera y hombros."
+      }
+    ]
+  }
+  
