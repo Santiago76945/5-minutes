@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>5 Minutes Healthier - Smart Focused Exercise Routine App</title>
@@ -9,9 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
-    <h1>5 Minutes Healthier</h1>
+    <div class="header-container">
+      <img src="img/app.png" alt="Logo de Athleta" class="header-logo">
+      <h1>Athleta</h1>
+    </div>
     <p>Smart Focused Exercise Routine App</p>
   </header>
 
@@ -25,17 +30,6 @@
     <h2>Rutinas Disponibles</h2>
     <div id="routineList">
       <!-- Las rutinas se generarán dinámicamente -->
-    </div>
-  </section>
-
-  <!-- Sección para mostrar detalles de la rutina seleccionada -->
-  <section id="routineDetailSection" class="section">
-    <div class="routine-detail-card">
-      <h2 id="routineTitle">Título de la rutina</h2>
-      <div class="buttons">
-        <button onclick="startRoutine()">Empezar ejercicio</button>
-        <button onclick="showRoutineInfoPopup()">Info</button>
-      </div>
     </div>
   </section>
 
@@ -72,16 +66,24 @@
       <span class="close" onclick="closeRoutineInfoPopup()">&times;</span>
       <img id="routineImage" src="" alt="Imagen de la rutina">
       <p id="routineDescription">Descripción de la rutina</p>
+      <div class="modal-buttons">
+        <button onclick="startRoutine()">Empezar ejercicio</button>
+        <button onclick="closeRoutineInfoPopup()">Volver al menú</button>
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
     <p>
-      Este software es propiedad de Thiago King Apps. "Thiago King" es una marca registrada propiedad de Santiago Haspert Piaggio (2025). Todos los derechos reservados. La reproducción, distribución, modificación o cualquier otro uso de este software sin la autorización expresa del propietario está estrictamente prohibido. Cualquier uso no autorizado puede estar sujeto a las acciones legales correspondientes.
+      Este software es propiedad de Thiago King Apps. "Thiago King" es una marca registrada propiedad de Santiago
+      Haspert Piaggio (2025). Todos los derechos reservados. La reproducción, distribución, modificación o cualquier
+      otro uso de este software sin la autorización expresa del propietario está estrictamente prohibido. Cualquier uso
+      no autorizado puede estar sujeto a las acciones legales correspondientes.
     </p>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -3,7 +3,6 @@
 /* ---------------------- */
 /* VARIABLES Y RESETEOS   */
 /* ---------------------- */
-
 html,
 body {
     margin: 0;
@@ -27,7 +26,6 @@ body {
 /* ---------------------- */
 /* ESTILOS GLOBALES       */
 /* ---------------------- */
-
 body {
     background: linear-gradient(135deg, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
     font-family: var(--font-base);
@@ -37,7 +35,6 @@ body {
     flex-direction: column;
 }
 
-/* Para que el contenido no quede pegado al borde */
 section,
 nav {
     padding: 10px;
@@ -46,7 +43,6 @@ nav {
 /* ---------------------- */
 /* ENCABEZADO             */
 /* ---------------------- */
-
 header {
     text-align: center;
     padding: 20px 10px;
@@ -71,7 +67,6 @@ header p {
 /* ---------------------- */
 /* BOTONES: estilo unificado para TODOS */
 /* ---------------------- */
-
 button {
     margin: 0.5rem;
     padding: 0.6rem 1.2rem;
@@ -96,7 +91,6 @@ button:hover {
 /* ---------------------- */
 /* MENÚ DE NAVEGACIÓN     */
 /* ---------------------- */
-
 nav {
     display: flex;
     justify-content: center;
@@ -110,19 +104,20 @@ nav {
 /* ---------------------- */
 /* SECCIONES (CARDS)      */
 /* ---------------------- */
-
 .section {
     display: none;
     margin: 10px auto;
     width: 95%;
     max-width: 600px;
-    /* Para que se vea bien en móvil y tablet */
 }
 
 .active {
     display: block;
 }
 
+/* ---------------------- */
+/* EJERCICIO Y CRONÓMETRO */
+/* ---------------------- */
 .exercise-card,
 .activity-card {
     background: #1f1f1f;
@@ -136,10 +131,6 @@ nav {
     align-items: center;
 }
 
-/* ---------------------- */
-/* EJERCICIO Y CRONÓMETRO */
-/* ---------------------- */
-
 .exercise-title {
     font-size: 24px;
     text-align: center;
@@ -147,7 +138,6 @@ nav {
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--color-accent-blue);
-    /* Texto de ejercicio en azul */
 }
 
 .timer {
@@ -156,7 +146,6 @@ nav {
     text-align: center;
     margin-bottom: 20px;
     color: #ffed4e;
-    /* Un amarillo más notorio tipo “bomba” */
     text-shadow: 0 0 8px rgba(255, 240, 0, 0.7);
 }
 
@@ -169,7 +158,6 @@ nav {
 /* ---------------------- */
 /* ACTIVITY STATS         */
 /* ---------------------- */
-
 .activity-card h2 {
     margin: 0 0 15px;
     font-size: 20px;
@@ -193,45 +181,66 @@ nav {
 /* ---------------------- */
 /* ADAPTACIONES MÓVILES   */
 /* ---------------------- */
-
 @media (max-width: 480px) {
     header h1 {
         font-size: 20px;
     }
-
     header p {
         font-size: 12px;
     }
-
     button {
         margin: 0.4rem;
         padding: 0.5rem 0.9rem;
     }
-
     .exercise-title {
         font-size: 20px;
     }
-
     .timer {
         font-size: 36px;
     }
 }
 
-/* Centramos el título "Rutinas Disponibles" y el botón con el nombre de la rutina */
+/* Centramos el título "Rutinas Disponibles" */
 #exercisesSection h2 {
     text-align: center;
 }
 
-#routineList button {
-    display: block;
-    margin: 0.5rem auto;
+/* Nuevo estilo para agrupar los ítems de rutina en una cuadrícula */
+#routineList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
-/* Estilos para el modal (pop up) de información de la rutina */
+/* Nuevos estilos para los ítems de rutina en el menú */
+.routine-item {
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+    background: #1f1f1f;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.routine-item img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.routine-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* ---------------------- */
+/* MODAL (POP UP)         */
+/* ---------------------- */
 .modal {
     text-align: center;
     display: none;
-    /* Oculto por defecto */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -250,7 +259,6 @@ nav {
     border-radius: 10px;
     width: 90%;
     max-width: 400px;
-    text-align: center;
     color: #fff;
     position: relative;
 }
@@ -268,43 +276,11 @@ nav {
     cursor: pointer;
 }
 
-/* Nuevo estilo para la imagen en el menú de rutina */
-#routineMenuImage {
-    display: block;
-    width: 30%;
-    margin: 0.5rem auto;
-    border-radius: 10px;
+.modal-buttons {
+    margin-top: 15px;
 }
 
-.routine-detail-card {
-    text-align: center;
-}
-
-.routine-detail-card .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    /* Espacio entre botones */
-}
-
-/* Nuevos estilos para los ítems de rutina en el menú */
-.routine-item {
-    text-align: center;
-    cursor: pointer;
-    margin: 1rem 0;
-  }
-  .routine-item img {
-    display: block;
-    width: 30%;
-    margin: 0 auto;
-    border-radius: 10px;
-  }
-  .routine-item p {
-    margin-top: 0.5rem;
-    font-weight: bold;
-  }
-  
-  /* ---------------------- */
+/* ---------------------- */
 /* FOOTER                */
 /* ---------------------- */
 footer {
@@ -313,10 +289,32 @@ footer {
     background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-blue));
     color: white;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.4);
-    margin-top: auto; /* Esto ayuda a empujar el footer al final en diseños flexibles */
+    margin-top: auto;
 }
 
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo {
+    width: 10%;
+    height: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.header-container h1 {
+    color: var(--color-accent-purple);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
 }

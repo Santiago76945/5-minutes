@@ -69,12 +69,11 @@ function selectRoutine(id) {
   }
   selectedRoutineId = id;
   selectedRoutine = routines[id];
-  // Actualizar la sección de detalle con los datos de la rutina seleccionada
-  document.getElementById('routineTitle').textContent = selectedRoutine.routine;
-  showSection('routineDetailSection');
+  // Mostrar el pop up de información directamente
+  showRoutineInfoPopup();
 }
 
-// Inicia la rutina (al pulsar "Empezar ejercicio")
+// Inicia la rutina (al pulsar "Empezar ejercicio" en el pop up)
 function startRoutine() {
   if (!selectedRoutine) {
     alert("La rutina aún no se ha cargado. Intenta de nuevo en unos instantes.");
@@ -83,6 +82,7 @@ function startRoutine() {
   currentRoutine = selectedRoutine.exercises;
   currentExerciseIndex = 0;
   isRest = false;
+  closeRoutineInfoPopup();
   showSection('exerciseRoutineSection');
   startExercise();
 }
