@@ -1,0 +1,15 @@
+{
+    "routine": "30 minutos - Ejercicio Aeróbico Libre",
+    "total_time": 1800,
+    "notes": "Antes de comenzar, realiza un calentamiento de 2-3 minutos para preparar el cuerpo y evitar lesiones.",
+    "image": "../img/aerobico_libre.webp",
+    "description": "Rutina de 15 minutos enfocada en mejorar la resistencia cardiovascular y quemar calorías. Se recomienda moverse de forma continua durante toda la duración.",
+    "exercises": [
+        {
+            "name": "Ejercicio aeróbico libre",
+            "duration": 1800,
+            "rest": 0,
+            "instructions": "Realiza cualquier tipo de ejercicio aeróbico de forma continua durante 15 minutos. Algunas opciones incluyen saltos, trote en el lugar, jumping jacks, rodillas altas, saltos laterales o cualquier otro movimiento que mantenga tu ritmo cardíaco elevado."
+        }
+    ]
+}

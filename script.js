@@ -1,10 +1,7 @@
 // script.js
 
 // Variables globales para almacenar las rutinas
-let routines = {
-  '5': null,
-  '10': null
-};
+let routines = {}; // Se llenará dinámicamente con los datos de cada JSON
 let selectedRoutine = null;
 let selectedRoutineId = '';
 let currentRoutine = [];
@@ -13,27 +10,44 @@ let timerInterval = null;
 let timeLeft = 0;
 let isRest = false;
 
-// Cargar ambas rutinas al iniciar la página
-window.onload = function() {
-  // Rutina de 5 minutos
-  fetch('routine_abdomen_biceps_5.json')
-    .then(response => response.json())
-    .then(data => {
-      routines['5'] = data;
-      document.getElementById('routineMenuImage5').src = data.image;
-      document.getElementById('routineName5').textContent = data.routine;
-    })
-    .catch(error => console.error('Error al cargar la rutina 5 min:', error));
+// Si fuera necesario ajustar la ruta base para las imágenes, podrías usar:
+const imageBasePath = ""; // Ej: "../" si la carpeta de imágenes está fuera del nivel actual
 
-  // Rutina de 10 minutos
-  fetch('routine_abdomen_biceps_10.json')
+// Al cargar la página, obtenemos el manifiesto y cargamos cada rutina
+window.onload = function() {
+  fetch('routines/manifest.json')
     .then(response => response.json())
-    .then(data => {
-      routines['10'] = data;
-      document.getElementById('routineMenuImage10').src = data.image;
-      document.getElementById('routineName10').textContent = data.routine;
+    .then(manifest => {
+      manifest.forEach((routineFile) => {
+        fetch('routines/' + routineFile)
+          .then(response => response.json())
+          .then(data => {
+            // Usamos el nombre del archivo (sin extensión) como id
+            let routineId = routineFile.replace('.json', '');
+            routines[routineId] = data;
+            // Crear el elemento HTML de la rutina
+            let routineItem = document.createElement('div');
+            routineItem.classList.add('routine-item');
+            routineItem.onclick = function() {
+              selectRoutine(routineId);
+            };
+
+            let img = document.createElement('img');
+            // Si es necesario ajustar la ruta de la imagen, concatenar imageBasePath + data.image
+            img.src = imageBasePath + data.image;
+            img.alt = `Rutina ${data.total_time/60} min`;
+
+            let p = document.createElement('p');
+            p.textContent = data.routine;
+
+            routineItem.appendChild(img);
+            routineItem.appendChild(p);
+            document.getElementById('routineList').appendChild(routineItem);
+          })
+          .catch(error => console.error('Error al cargar la rutina:', error));
+      });
     })
-    .catch(error => console.error('Error al cargar la rutina 10 min:', error));
+    .catch(error => console.error('Error al cargar el manifest:', error));
 };
 
 // Función para mostrar una sección y ocultar las demás
@@ -47,7 +61,7 @@ function showSection(sectionId) {
   }
 }
 
-// Al seleccionar una rutina del menú
+// Al seleccionar una rutina del menú dinámico
 function selectRoutine(id) {
   if (!routines[id]) {
     alert("La rutina aún no se ha cargado. Intenta de nuevo en unos instantes.");
@@ -203,7 +217,7 @@ function updateActivityStats() {
 // Muestra el pop up con información de la rutina seleccionada
 function showRoutineInfoPopup() {
   if (!selectedRoutine) return;
-  document.getElementById('routineImage').src = selectedRoutine.image || '';
+  document.getElementById('routineImage').src = imageBasePath + (selectedRoutine.image || '');
   document.getElementById('routineDescription').textContent = selectedRoutine.description || 'No hay descripción disponible.';
   document.getElementById('popupModal').style.display = 'block';
 }

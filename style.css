@@ -295,7 +295,7 @@ nav {
   }
   .routine-item img {
     display: block;
-    max-width: 90%;
+    width: 30%;
     margin: 0 auto;
     border-radius: 10px;
   }
@@ -304,3 +304,19 @@ nav {
     font-weight: bold;
   }
   
+  /* ---------------------- */
+/* FOOTER                */
+/* ---------------------- */
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-blue));
+    color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.4);
+    margin-top: auto; /* Esto ayuda a empujar el footer al final en diseños flexibles */
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
