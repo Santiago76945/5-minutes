@@ -1,0 +1,40 @@
+{
+    "routine": "5 minutos - Abdomen y Bíceps",
+    "total_time": 300,
+    "notes": "Antes de empezar, dedica al menos 1 minuto a movilizar tus articulaciones y realizar estiramientos dinámicos.",
+    "image": "img/abdomen_biceps.webp",
+    "description": "Esta rutina se enfoca en trabajar los músculos del abdomen y los bíceps. Incluye ejercicios como plancha con toques de hombro, curl de bíceps, crunch abdominal, 21’s de bíceps y bicicleta abdominal.",
+    "exercises": [
+      {
+        "name": "Plancha con toques de hombro (Shoulder Taps)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Posición de plancha alta. Mantén el abdomen contraído y alterna los toques a los hombros."
+      },
+      {
+        "name": "Curl de bíceps con mancuernas o botellas",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Realiza curls de bíceps de forma controlada, manteniendo los codos pegados al cuerpo."
+      },
+      {
+        "name": "Crunch abdominal",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Realiza crunches sin tirar del cuello, enfocándote en contraer el abdomen."
+      },
+      {
+        "name": "21’s de bíceps (versión corta por tiempo)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Realiza 21’s de bíceps dividiendo el movimiento en 3 fases."
+      },
+      {
+        "name": "Bicicleta abdominal (Bicycle Crunch)",
+        "duration": 45,
+        "rest": 15,
+        "instructions": "Alterna el codo hacia la rodilla contraria para trabajar el abdomen y oblicuos."
+      }
+    ]
+  }
+  

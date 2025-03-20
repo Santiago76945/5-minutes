@@ -1,0 +1,306 @@
+/* style.css */
+
+/* ---------------------- */
+/* VARIABLES Y RESETEOS   */
+/* ---------------------- */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Paleta y variables de color para ajustarlas fácilmente */
+:root {
+    --color-bg-dark: #121212;
+    --color-bg-gradient-start: #252534;
+    --color-bg-gradient-end: #3a3a5a;
+    --color-accent-purple: #c280ff;
+    --color-accent-blue: #6a80ff;
+    --color-accent-yellow: #ffc08f;
+    --color-primary-text: #e0e0e0;
+    --color-button-hover: rgba(255, 255, 255, 0.1);
+    --font-base: "Arial", sans-serif;
+    --font-digital: "Courier New", Courier, monospace;
+}
+
+/* ---------------------- */
+/* ESTILOS GLOBALES       */
+/* ---------------------- */
+
+body {
+    background: linear-gradient(135deg, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
+    font-family: var(--font-base);
+    color: var(--color-primary-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Para que el contenido no quede pegado al borde */
+section,
+nav {
+    padding: 10px;
+}
+
+/* ---------------------- */
+/* ENCABEZADO             */
+/* ---------------------- */
+
+header {
+    text-align: center;
+    padding: 20px 10px;
+    background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-blue));
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    font-family: var(--font-digital);
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* ---------------------- */
+/* BOTONES: estilo unificado para TODOS */
+/* ---------------------- */
+
+button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--color-accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.3s;
+    font-family: var(--font-base);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+button:hover {
+    background: var(--color-accent-blue);
+    transform: scale(1.05);
+}
+
+/* ---------------------- */
+/* MENÚ DE NAVEGACIÓN     */
+/* ---------------------- */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1f1f2f, #2d2d4a);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+}
+
+/* ---------------------- */
+/* SECCIONES (CARDS)      */
+/* ---------------------- */
+
+.section {
+    display: none;
+    margin: 10px auto;
+    width: 95%;
+    max-width: 600px;
+    /* Para que se vea bien en móvil y tablet */
+}
+
+.active {
+    display: block;
+}
+
+.exercise-card,
+.activity-card {
+    background: #1f1f1f;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------------------- */
+/* EJERCICIO Y CRONÓMETRO */
+/* ---------------------- */
+
+.exercise-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--color-accent-blue);
+    /* Texto de ejercicio en azul */
+}
+
+.timer {
+    font-family: var(--font-digital);
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffed4e;
+    /* Un amarillo más notorio tipo “bomba” */
+    text-shadow: 0 0 8px rgba(255, 240, 0, 0.7);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------------------- */
+/* ACTIVITY STATS         */
+/* ---------------------- */
+
+.activity-card h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-accent-blue);
+}
+
+#activityStats p {
+    margin: 8px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+}
+
+#activityStats span {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ---------------------- */
+/* ADAPTACIONES MÓVILES   */
+/* ---------------------- */
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    button {
+        margin: 0.4rem;
+        padding: 0.5rem 0.9rem;
+    }
+
+    .exercise-title {
+        font-size: 20px;
+    }
+
+    .timer {
+        font-size: 36px;
+    }
+}
+
+/* Centramos el título "Rutinas Disponibles" y el botón con el nombre de la rutina */
+#exercisesSection h2 {
+    text-align: center;
+}
+
+#routineList button {
+    display: block;
+    margin: 0.5rem auto;
+}
+
+/* Estilos para el modal (pop up) de información de la rutina */
+.modal {
+    text-align: center;
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    text-align: center;
+    background-color: #1f1f1f;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Nuevo estilo para la imagen en el menú de rutina */
+#routineMenuImage {
+    display: block;
+    width: 30%;
+    margin: 0.5rem auto;
+    border-radius: 10px;
+}
+
+.routine-detail-card {
+    text-align: center;
+}
+
+.routine-detail-card .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    /* Espacio entre botones */
+}
+
+/* Nuevos estilos para los ítems de rutina en el menú */
+.routine-item {
+    text-align: center;
+    cursor: pointer;
+    margin: 1rem 0;
+  }
+  .routine-item img {
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  .routine-item p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  

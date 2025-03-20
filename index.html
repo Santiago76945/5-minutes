@@ -1,0 +1,89 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>5 Minutes Healthier - Smart Focused Exercise Routine App</title>
+  <!-- Para una mejor visualización en dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>5 Minutes Healthier</h1>
+    <p>Smart Focused Exercise Routine App</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('exercisesSection')">Ejercicios</button>
+    <button onclick="showSection('activitySection')">Mi actividad</button>
+  </nav>
+
+  <!-- Sección para mostrar las rutinas disponibles -->
+  <section id="exercisesSection" class="section active">
+    <h2>Rutinas Disponibles</h2>
+    <div id="routineList">
+      <!-- Ítem para la rutina de 5 minutos -->
+      <div class="routine-item" onclick="selectRoutine('5')">
+        <img id="routineMenuImage5" src="" alt="Rutina 5 min">
+        <p id="routineName5">Rutina 5 minutos - Abdomen y Bíceps</p>
+      </div>
+      <!-- Ítem para la rutina de 10 minutos -->
+      <div class="routine-item" onclick="selectRoutine('10')">
+        <img id="routineMenuImage10" src="" alt="Rutina 10 min">
+        <p id="routineName10">Rutina 10 minutos - Abdomen y Bíceps</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección para mostrar detalles de la rutina seleccionada -->
+  <section id="routineDetailSection" class="section">
+    <div class="routine-detail-card">
+      <h2 id="routineTitle">Título de la rutina</h2>
+      <div class="buttons">
+        <button onclick="startRoutine()">Empezar ejercicio</button>
+        <button onclick="showRoutineInfoPopup()">Info</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección para la ejecución de la rutina -->
+  <section id="exerciseRoutineSection" class="section">
+    <div class="exercise-card">
+      <div class="exercise-title" id="exerciseTitle">Nombre del ejercicio</div>
+      <div class="timer" id="exerciseTimer">00:00</div>
+      <div class="controls">
+        <button id="pauseBtn" onclick="pauseTimer()">Pausa</button>
+        <button id="resumeBtn" onclick="resumeTimer()" style="display: none;">Reanudar</button>
+        <button onclick="exitRoutine()">Salir</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección para mostrar la actividad y estadísticas -->
+  <section id="activitySection" class="section">
+    <div class="activity-card">
+      <h2>Mi actividad</h2>
+      <div id="activityStats">
+        <p>Minutos totales entrenados: <span id="totalMinutes">0</span></p>
+        <p>Racha actual: <span id="currentStreak">0</span> días</p>
+        <p>Racha máxima: <span id="maxStreak">0</span> días</p>
+        <p>Promedio diario: <span id="dailyAverage">0</span> minutos</p>
+        <p>Minutos entrenados hoy: <span id="todayMinutes">0</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal para mostrar información de la rutina -->
+  <div id="popupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRoutineInfoPopup()">&times;</span>
+      <img id="routineImage" src="" alt="Imagen de la rutina">
+      <p id="routineDescription">Descripción de la rutina</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
