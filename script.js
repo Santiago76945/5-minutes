@@ -123,6 +123,8 @@ function startTimerTick() {
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
       if (!isRest) {
+        // Reproducir sonido de alarma al finalizar el ejercicio
+        playAlarm();
         const exercise = currentRoutine[currentExerciseIndex];
         saveTrainingTime(exercise.duration);
         if (exercise.rest && exercise.rest > 0) {
@@ -225,4 +227,12 @@ function showRoutineInfoPopup() {
 // Cierra el pop up de información
 function closeRoutineInfoPopup() {
   document.getElementById('popupModal').style.display = 'none';
+}
+
+// Función para reproducir el sonido de alarma
+function playAlarm() {
+  const alarmSound = document.getElementById('alarmSound');
+  if (alarmSound) {
+    alarmSound.play();
+  }
 }

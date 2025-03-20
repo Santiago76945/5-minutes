@@ -235,6 +235,14 @@ nav {
     font-weight: bold;
 }
 
+/* Ajuste para mantener el tamaño original y mostrar 3 elementos en línea en pantallas amplias */
+@media (min-width: 900px) { 
+  #routineList {
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+  }
+}
+
 /* ---------------------- */
 /* MODAL (POP UP)         */
 /* ---------------------- */
@@ -305,7 +313,7 @@ footer p {
 }
 
 .header-logo {
-    width: 10%;
+    width: 100px;
     height: auto;
     margin-left: 10px;
     vertical-align: middle;
