@@ -37,6 +37,10 @@
   <section id="exerciseRoutineSection" class="section">
     <div class="exercise-card">
       <div class="exercise-title" id="exerciseTitle">Nombre del ejercicio</div>
+      <!-- Nuevo contenedor de imagen ilustrativa -->
+      <div id="exerciseImageContainer" style="text-align: center; margin: 10px 0;">
+        <img id="exerciseImage" src="" alt="Imagen del ejercicio" style="max-width: 100%; height: auto;">
+      </div>
       <div class="timer" id="exerciseTimer">00:00</div>
       <div class="controls">
         <button id="pauseBtn" onclick="pauseTimer()">Pausa</button>
@@ -85,6 +89,10 @@
 
   <!-- Elemento de audio para la alarma -->
   <audio id="alarmSound" src="sounds/alarm.mp3" preload="auto"></audio>
+  <!-- Elemento de audio para instrucciones del ejercicio -->
+  <audio id="exerciseAudio" preload="auto"></audio>
+  <!-- Elemento de audio para el tic-toc en bucle -->
+  <audio id="tickTockSound" src="sounds/tictoc.mp3" preload="auto" loop></audio>
 
   <script src="script.js"></script>
 </body>

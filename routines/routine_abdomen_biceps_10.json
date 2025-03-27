@@ -1,70 +1,73 @@
 {
-    "routine": "10 minutos - Abdomen y Bíceps",
-    "total_time": 600,
-    "notes": "Antes de iniciar, dedica al menos 1-2 minutos a un calentamiento breve para preparar tus músculos y articulaciones.",
-    "image": "img/abdomen_biceps_10.png",
-    "description": "Rutina de 10 minutos diseñada para tonificar abdomen y bíceps, incorporando 10 ejercicios variados que trabajan de forma intensa y equilibrada.",
-    "exercises": [
-      {
-        "name": "Plancha con rodilla al codo (Plank Knee to Elbow)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Posición de plancha alta (brazos estirados, cuerpo en línea recta). Lleva una rodilla hacia el codo del mismo lado de forma controlada y repite con la otra pierna."
-      },
-      {
-        "name": "Curl de bíceps tradicional",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "De pie, sujeta mancuernas o botellas de agua. Mantén los codos pegados al cuerpo y flexiona los brazos a la altura del codo, subiendo y bajando con control."
-      },
-      {
-        "name": "Crunch abdominal",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Acuéstate boca arriba con rodillas flexionadas. Coloca las manos tras la nuca o cruzadas sobre el pecho y eleva el torso contrayendo el abdomen."
-      },
-      {
-        "name": "Hammer Curl (Curl tipo martillo)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Con la misma postura del curl de bíceps, mantén las palmas mirando hacia los costados y flexiona los codos como si golpearas un clavo, trabajando también los antebrazos."
-      },
-      {
-        "name": "Plancha lateral con elevación de cadera",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Acuéstate de lado, apoya el antebrazo en el suelo y eleva la cadera formando una línea recta. Alterna lados a mitad del tiempo o según prefieras."
-      },
-      {
-        "name": "Curl invertido (Reverse Curl)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "De pie, sujeta las mancuernas con las palmas mirando hacia abajo (agarre prono) y flexiona los codos hasta la altura de los hombros, trabajando antebrazos y bíceps."
-      },
-      {
-        "name": "Bicicleta abdominal (Bicycle Crunch)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Acuéstate boca arriba, coloca las manos detrás de la cabeza y alterna llevando el codo hacia la rodilla contraria, sintiendo la contracción en los oblicuos."
-      },
-      {
-        "name": "21’s de bíceps (una serie de 21’s)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "De pie, con mancuernas: realiza 7 repeticiones desde brazos extendidos hasta la mitad, 7 desde 90° hasta casi tocar hombros, y 7 repeticiones completas."
-      },
-      {
-        "name": "Plancha con toques de hombro (Shoulder Taps)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "En posición de plancha alta, alterna tocando el hombro opuesto con cada mano, manteniendo la cadera estable y el abdomen activo."
-      },
-      {
-        "name": "Puente abdominal en V (V-up)",
-        "duration": 45,
-        "rest": 15,
-        "instructions": "Acuéstate boca arriba con piernas extendidas y brazos estirados detrás de la cabeza. Eleva simultáneamente tronco y piernas formando una 'V', manteniendo el abdomen firme. Si es muy exigente, flexiona ligeramente las rodillas."
-      }
-    ]
-  }
-  
+  "routine": "10 minutos - Abdomen y Bíceps",
+  "total_time": 600,
+  "notes": "Antes de iniciar, dedica al menos 1-2 minutos a un calentamiento breve para preparar tus músculos y articulaciones.",
+  "image": "img/abdomen_biceps_10.png",
+  "description": "Rutina de 10 minutos diseñada para tonificar abdomen y bíceps, incorporando 10 ejercicios variados que trabajan de forma intensa y equilibrada.",
+  "exercises": [
+    {
+      "name": "Plancha con toques de hombro (Shoulder Taps)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Posición de plancha alta. Mantén el abdomen contraído y alterna los toques a los hombros.",
+      "images": [
+        "Shoulder_Taps_Position_1.png",
+        "Shoulder_Taps_Position_2.png"
+      ]
+    },
+    {
+      "name": "Curl de bíceps tradicional",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "De pie, sujeta mancuernas o botellas de agua. Mantén los codos pegados al cuerpo y flexiona los brazos a la altura del codo, subiendo y bajando con control."
+    },
+    {
+      "name": "Crunch abdominal",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Acuéstate boca arriba con rodillas flexionadas. Coloca las manos tras la nuca o cruzadas sobre el pecho y eleva el torso contrayendo el abdomen."
+    },
+    {
+      "name": "Hammer Curl (Curl tipo martillo)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Con la misma postura del curl de bíceps, mantén las palmas mirando hacia los costados y flexiona los codos como si golpearas un clavo, trabajando también los antebrazos."
+    },
+    {
+      "name": "Plancha lateral con elevación de cadera",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Acuéstate de lado, apoya el antebrazo en el suelo y eleva la cadera formando una línea recta. Alterna lados a mitad del tiempo o según prefieras."
+    },
+    {
+      "name": "Curl invertido (Reverse Curl)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "De pie, sujeta las mancuernas con las palmas mirando hacia abajo (agarre prono) y flexiona los codos hasta la altura de los hombros, trabajando antebrazos y bíceps."
+    },
+    {
+      "name": "Bicicleta abdominal (Bicycle Crunch)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Acuéstate boca arriba, coloca las manos detrás de la cabeza y alterna llevando el codo hacia la rodilla contraria, sintiendo la contracción en los oblicuos."
+    },
+    {
+      "name": "21’s de bíceps (una serie de 21’s)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "De pie, con mancuernas: realiza 7 repeticiones desde brazos extendidos hasta la mitad, 7 desde 90° hasta casi tocar hombros, y 7 repeticiones completas."
+    },
+    {
+      "name": "Plancha con toques de hombro (Shoulder Taps)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "En posición de plancha alta, alterna tocando el hombro opuesto con cada mano, manteniendo la cadera estable y el abdomen activo."
+    },
+    {
+      "name": "Puente abdominal en V (V-up)",
+      "duration": 45,
+      "rest": 15,
+      "instructions": "Acuéstate boca arriba con piernas extendidas y brazos estirados detrás de la cabeza. Eleva simultáneamente tronco y piernas formando una 'V', manteniendo el abdomen firme. Si es muy exigente, flexiona ligeramente las rodillas."
+    }
+  ]
+}

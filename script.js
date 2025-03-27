@@ -9,12 +9,14 @@ let currentExerciseIndex = 0;
 let timerInterval = null;
 let timeLeft = 0;
 let isRest = false;
+let exerciseImageInterval = null;
+let currentImageIndex = 0;
 
 // Si fuera necesario ajustar la ruta base para las imágenes, podrías usar:
 const imageBasePath = ""; // Ej: "../" si la carpeta de imágenes está fuera del nivel actual
 
 // Al cargar la página, obtenemos el manifiesto y cargamos cada rutina
-window.onload = function() {
+window.onload = function () {
   fetch('routines/manifest.json')
     .then(response => response.json())
     .then(manifest => {
@@ -28,14 +30,14 @@ window.onload = function() {
             // Crear el elemento HTML de la rutina
             let routineItem = document.createElement('div');
             routineItem.classList.add('routine-item');
-            routineItem.onclick = function() {
+            routineItem.onclick = function () {
               selectRoutine(routineId);
             };
 
             let img = document.createElement('img');
             // Si es necesario ajustar la ruta de la imagen, concatenar imageBasePath + data.image
             img.src = imageBasePath + data.image;
-            img.alt = `Rutina ${data.total_time/60} min`;
+            img.alt = `Rutina ${data.total_time / 60} min`;
 
             let p = document.createElement('p');
             p.textContent = data.routine;
@@ -60,6 +62,65 @@ function showSection(sectionId) {
     updateActivityStats();
   }
 }
+
+function playExerciseAudio(exercise) {
+  if (exercise.audio) {
+    const exerciseAudio = document.getElementById('exerciseAudio');
+    // Establecer la ruta completa: carpeta 'audios/exercises/' + nombre del archivo definido en el JSON
+    exerciseAudio.src = "audios/exercises/" + exercise.audio;
+    exerciseAudio.loop = false; // Se reproduce solo una vez
+    exerciseAudio.play().catch(error => {
+      console.error("Error al reproducir el audio de instrucciones:", error);
+    });
+  }
+}
+
+function playTickTock() {
+  const tickTockSound = document.getElementById("tickTockSound");
+  if (tickTockSound) {
+    tickTockSound.volume = 0.20;
+    tickTockSound.play().catch(error => {
+      console.error("Error al reproducir el sonido tic toc:", error);
+    });
+  }
+}
+
+function stopTickTock() {
+  const tickTockSound = document.getElementById("tickTockSound");
+  if (tickTockSound) {
+    tickTockSound.pause();
+    tickTockSound.currentTime = 0;
+  }
+}
+
+function updateExerciseImage(exercise) {
+  const imageContainer = document.getElementById('exerciseImageContainer');
+  const exerciseImage = document.getElementById('exerciseImage');
+  // Limpiar intervalo previo si existe
+  if (exerciseImageInterval) {
+    clearInterval(exerciseImageInterval);
+    exerciseImageInterval = null;
+  }
+  // Verificar si existen imágenes en el ejercicio
+  if (exercise.images && Array.isArray(exercise.images) && exercise.images.length > 0) {
+    imageContainer.style.display = 'block';
+    currentImageIndex = 0;
+    // Establecer la primera imagen; la ruta completa asume que las imágenes están en /img/exercises/
+    exerciseImage.src = imageBasePath + "img/exercises/" + exercise.images[currentImageIndex];
+    // Si hay más de una imagen, iniciar intervalo para rotarlas cada 3 segundos
+    if (exercise.images.length > 1) {
+      exerciseImageInterval = setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % exercise.images.length;
+        exerciseImage.src = imageBasePath + "img/exercises/" + exercise.images[currentImageIndex];
+      }, 3000);
+    }
+  } else {
+    // Si no hay imágenes, ocultar el contenedor
+    imageContainer.style.display = 'none';
+    exerciseImage.src = '';
+  }
+}
+
 
 // Al seleccionar una rutina del menú dinámico
 function selectRoutine(id) {
@@ -97,6 +158,10 @@ function startExercise() {
   const exercise = currentRoutine[currentExerciseIndex];
   isRest = false;
   document.getElementById('exerciseTitle').textContent = exercise.name;
+  // Actualizar la imagen del ejercicio (si existe)
+  updateExerciseImage(exercise);
+  // Reproducir instrucciones en audio (si existen)
+  playExerciseAudio(exercise);
   timeLeft = exercise.duration;
   updateTimerDisplay();
   // Mostrar botón de "Pausa" y ocultar "Reanudar"
@@ -105,23 +170,36 @@ function startExercise() {
   startTimerTick();
 }
 
+
 // Inicia el período de descanso tras un ejercicio
 function startRest(exercise) {
   isRest = true;
   document.getElementById('exerciseTitle').textContent = "Descanso";
   timeLeft = exercise.rest;
   updateTimerDisplay();
+  // Limpiar la rotación de imágenes y ocultar el contenedor durante el descanso
+  if (exerciseImageInterval) {
+    clearInterval(exerciseImageInterval);
+    exerciseImageInterval = null;
+  }
+  document.getElementById('exerciseImageContainer').style.display = 'none';
   startTimerTick();
 }
 
+
 // Función de cuenta regresiva (para ejercicio y descanso)
 function startTimerTick() {
+  // Inicia el sonido tic toc
+  playTickTock();
+  
   if (timerInterval) clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     timeLeft--;
     updateTimerDisplay();
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
+      // Detén el sonido tic toc al finalizar el período
+      stopTickTock();
       if (!isRest) {
         // Reproducir sonido de alarma al finalizar el ejercicio
         playAlarm();
@@ -157,6 +235,8 @@ function pauseTimer() {
     timerInterval = null;
     document.getElementById('pauseBtn').style.display = 'none';
     document.getElementById('resumeBtn').style.display = 'inline-block';
+    // Detener el sonido tic toc
+    stopTickTock();
   }
 }
 
@@ -166,6 +246,7 @@ function resumeTimer() {
     startTimerTick();
     document.getElementById('resumeBtn').style.display = 'none';
     document.getElementById('pauseBtn').style.display = 'inline-block';
+    // Reanudar el sonido tic toc se inicia dentro de startTimerTick()
   }
 }
 
